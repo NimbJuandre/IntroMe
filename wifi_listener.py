@@ -1,14 +1,46 @@
 import platform
 import subprocess
 import re
+import os
+import netifaces
+
+def get_current_network_interface():
+    try:
+        # Get a list of all network interfaces
+        interfaces = netifaces.interfaces()
+        
+        # Iterate through the interfaces and find the one with an IP address (assuming it's connected)
+        for interface in interfaces:
+            addresses = netifaces.ifaddresses(interface)
+            if netifaces.AF_INET in addresses:
+                return interface 
+        
+        # If no connected interface found, return None
+        return None
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return None
+    
+def add_tshark_to_path_variable():
+    try:
+        tshark_folder = "C:\\Program Files\\Wireshark"
+        current_path = os.environ.get('Path', '')
+        new_path = f"{current_path};{tshark_folder}"
+        os.environ['Path'] = new_path
+        
+    except subprocess.CalledProcessError:
+        print("Failed to add the tshark folder to the PATH environment variable")
 
 def is_tshark_installed():
     try:
+        add_tshark_to_path_variable()
         subprocess.check_call(["tshark", "--version"])
         return True
     except FileNotFoundError:
+        print("FileNotFoundError")
         return False
     except subprocess.CalledProcessError:
+        print("CalledProcessError")
         return False
 
 def install_wireshark():
@@ -27,7 +59,7 @@ def parse_packet(packet):
     return None
 
 
-def start_wifi_listener(interface):
+def start_network_listener(interface):
     if not is_tshark_installed():
         install_wireshark()
         return
@@ -40,7 +72,7 @@ def start_wifi_listener(interface):
             "-T", "fields",  # Output fields, one per line
             "-e", "frame.time",  # Timestamp of the packet
             "-e", "wlan.sa",  # Source MAC address
-            "-Y", "wlan",  # Filter for Wi-Fi packets
+            # "-Y", "wlan",  # Filter for Wi-Fi packets
         ]
 
         # Start tshark as a subprocess, capturing and parsing packets continuously
@@ -60,7 +92,8 @@ def start_wifi_listener(interface):
 
 if __name__ == "__main__":
     if platform.system() == "Windows":
-        wifi_interface = "wlan0"  # Replace with your Wi-Fi interface
-        start_wifi_listener(wifi_interface)
+        # current_connected_interface = get_current_network_interface()
+        current_connected_interface = r"\Device\NPF_{D487526C-FDB1-44C9-B484-72BF575A2138}"
+        start_network_listener(current_connected_interface)
     else:
         print("This script is intended for Windows only.")
