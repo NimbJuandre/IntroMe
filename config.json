@@ -2,11 +2,11 @@
     "client_id": "f4cab069a70a43a690c86bbf099f7146",
     "client_secret": "109795950a2f4f6c84aa07ba6a4cce4c",
     "redirect_uri": "http://localhost/",
-    "spotify_device_name": "Nimb's Honor",
+    "spotify_device_name": "Nimb's TV",
     "user_devices": [
         {
-            "mac_address": "62:E0:36:DB:BC:E2",
-            "song_uri": "spotify:track:3l3TfscsEQde1UBYrXTXsd"
+            "mac_address": "4a:8c:1e:2d:b7:64",
+            "song_uri": "spotify:track:16lDiwTWd1CdFUaimsOIBr"
         }
     ]
 }

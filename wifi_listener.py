@@ -125,6 +125,8 @@ def start_network_listener(interface, timeout=3600): # 15 min
 
     except subprocess.CalledProcessError:
         print("\nError.")
+    except Exception as e:
+        print(str(e))
 
 def find_device_song_by_mac(mac):
     for device in config['user_devices']:
@@ -160,11 +162,12 @@ def play_song_on_device(sp, mac_address):
             return
         
         # Add the song to the queue
+        track = sp.track(song)
         sp.add_to_queue(uri=song, device_id=device_id)
 
         # Skip to the next track in the queue
         sp.next_track(device_id=device_id)
-        print(f"Playing device '{mac_address}' song.")
+        print(f"Playing {track['name']} on device '{mac_address}'.")
             
     except Exception as e:
         print(str(e))
