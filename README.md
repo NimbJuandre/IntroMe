@@ -1,6 +1,7 @@
 # IntroMe
 
 Introduce yourself to the network by playing your favorite song on Spotify when you connect to the Wi-Fi.
+You can choose to play your song on available devices in your network (Spotify do not show all devices ex.3rd party speakers).
 
 ## Getting Started
 
@@ -17,17 +18,22 @@ First, create a virtual environment for IntroMe:
 ```bash
 python -m venv myenv
 ```
+Then activate the virtual environment
 
+```bash
+myenv\Scripts\activate
+```
 ### Install Project Dependencies
 
 With the virtual environment active, install the project dependencies from the requirements.txt file:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 # Configuring IntroMe
 
-Follow these steps to configure the "IntroMe" project, including creating a Spotify Developer App and adding your user devices and Spotify song URIs.
+Follow these steps to configure the "IntroMe" project, including creating a Spotify Developer App and adding your user devices and Spotify song URIs to the config.
 
 ## 1. Create a Spotify Developer App
 
@@ -65,3 +71,43 @@ You will be taken to your app's dashboard, where you can access your Client ID, 
       "spotify_client_secret": "your_client_secret",
       "spotify_redirect_uri": "http://localhost/"
   }
+
+## 3. Add User Devices and Spotify Song URIs
+To make "IntroMe" play your favorite song when you connect to Wi-Fi, you need to provide details about your user devices and Spotify song URIs. Follow these steps:
+
+Get Your Device Wi-Fi MAC Address:
+
+Determine the MAC address of the Wi-Fi device (ex. phone) you want to use as the trigger for playing music with "IntroMe."
+
+Get a Spotify Song URI:
+
+Find the Spotify song you want to play and copy its Spotify URI. You can do this on Windows by:
+
+Holding down Ctrl + Alt and right-clicking on the song.
+Select "Share" and then choose "Copy Spotify URI."
+In your config.json file, add the following details:
+
+json
+Copy code
+{
+    "spotify_client_id": "your_client_id",
+    "spotify_client_secret": "your_client_secret",
+    "spotify_redirect_uri": "http://localhost/",
+    "user_devices": [
+        {
+            "wifi_mac_address": "device wifi_mac_address",
+            "spotify_song_uri": "spotify_song_uri"
+        },
+         {
+            "wifi_mac_address": "device wifi_mac_address",
+            "spotify_song_uri": "spotify_song_uri"
+        },
+         {
+            "wifi_mac_address": "device wifi_mac_address",
+            "spotify_song_uri": "spotify_song_uri"
+        },
+    ]
+}
+Replace "your_wifi_mac_address" and "your_spotify_song_uri" with the actual MAC address of your Wi-Fi device and the Spotify URI of your chosen song. There can be multiple user devices setup.
+
+That's it! You've successfully configured "IntroMe" with your Spotify Developer App, user devices, and Spotify song URIs. Enjoy introducing yourself to the network with your favorite tunes!
