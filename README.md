@@ -87,7 +87,7 @@ Holding down Ctrl + Alt and right-clicking on the song.
 Select "Share" and then choose "Copy Spotify URI."
 In your config.json file, add the following details:
 
- ```json
+```json
 {
     "spotify_client_id": "your_client_id",
     "spotify_client_secret": "your_client_secret",
@@ -107,6 +107,7 @@ In your config.json file, add the following details:
         },
     ]
 }
+```
 Replace "your_wifi_mac_address" and "your_spotify_song_uri" with the actual MAC address of your Wi-Fi device and the Spotify URI of your chosen song. There can be multiple user devices setup.
 
 That's it! You've successfully configured "IntroMe" with your Spotify Developer App, user devices, and Spotify song URIs. Enjoy introducing yourself to the network with your favorite tunes!
