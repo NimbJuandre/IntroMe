@@ -87,8 +87,7 @@ Holding down Ctrl + Alt and right-clicking on the song.
 Select "Share" and then choose "Copy Spotify URI."
 In your config.json file, add the following details:
 
-json
-Copy code
+ ```json
 {
     "spotify_client_id": "your_client_id",
     "spotify_client_secret": "your_client_secret",
