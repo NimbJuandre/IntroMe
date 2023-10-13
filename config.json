@@ -1,8 +1,8 @@
 {
-    "client_id": "f4cab069a70a43a690c86bbf099f7146",
-    "client_secret": "109795950a2f4f6c84aa07ba6a4cce4c",
+    "client_id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "client_secret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "redirect_uri": "http://localhost/",
-    "spotify_device_name": "Nimb's TV",
+    "spotify_device_name": "TV",
     "user_devices": [
         {
             "mac_address": "4a:8c:1e:2d:b7:64",
