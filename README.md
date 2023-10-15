@@ -111,4 +111,9 @@ In your config.json file, add the following details:
 ```
 Replace "your_wifi_mac_address" and "your_spotify_song_uri" with the actual MAC address of your Wi-Fi device and the Spotify URI of your chosen song. There can be multiple user devices setup.
 
+## Running the wifi listener script
+```bash
+python .\wifi_listener.py
+```
+
 That's it! You've successfully configured "IntroMe" with your Spotify Developer App, user devices, and Spotify song URIs. Enjoy introducing yourself to the network with your favorite tunes!
