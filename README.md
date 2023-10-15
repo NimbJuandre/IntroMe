@@ -1,7 +1,7 @@
 # IntroMe
 
 Introduce yourself to the network by playing your favorite song on Spotify when you connect to the Wi-Fi.
-You can choose to play your song on available devices in your network (Spotify do not show all devices ex.3rd party speakers).
+You can choose to play your song on available devices in your network (Spotify does not show all devices, e.g., 3rd party speakers.)
 
 ## Getting Started
 
@@ -52,7 +52,8 @@ To enable Spotify integration in "IntroMe," you need to create a Spotify Develop
   - **App Description:** Provide a short description for your app.
   - **Website:** Leave this field empty.
   - **Redirect URI:** Enter `http://localhost/`.
-  - Leave the "Bundle IDs" and "Android Packages" fields empty.
+  - **Bundle IDs:** Leave this field empty.
+  - **Android Packages:** Leave this field empty.
 
 - Read and accept the Spotify Developer Terms of Service.
 
